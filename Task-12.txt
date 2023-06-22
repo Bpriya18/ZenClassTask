@@ -1,0 +1,226 @@
+
+			Task-12 -Java collections and packages
+			======================================
+
+1. Print hte employee details which are created using different packages.
+==========================================================================
+
+com.example.hr -> Employee.java
+================================
+
+//Employee class creation with the attributes Name, id and salary.
+package com.example.hr;
+
+public class Employee {
+	private String name;
+	private int id;
+	private double salary;
+	
+	//Constructor
+	public Employee(String name, int id, double salary) {
+		super();
+		this.name = name;
+		this.id = id;
+		this.salary = salary;
+	}
+	
+	//Method to print the name
+	public void printName() {
+		System.out.println("Name :"+name);
+	}
+	
+	//Method to print the salary
+	public void printSalary() {
+		System.out.println("Salary :"+salary);
+	}
+}
+
+
+
+com.example.hrtest - > EmployeeTest.Java
+=========================================
+
+//EmployeeTest class 
+package com.example.hrtest;
+
+//Import the package com.example.hr 
+import com.example.hr.*;
+
+public class EmployeeTest {
+
+	//Main method
+	public static void main(String[] args) {
+		
+		//Create an object for the Employee class
+		Employee emp= new Employee("Priya",100,50000);
+		
+		//Print the employee name and salary
+		System.out.println("Employee Details  \n===================");
+		emp.printName();
+		emp.printSalary();
+		
+
+	}
+
+}
+
+
+Output
+=======
+
+Employee Details  
+===================
+Name :Priya
+Salary :50000.0
+ 
+
+2. JavaProgram to create an ArrayList of Strings and then remove all the elements from the ArrayList.
+=====================================================================================================
+
+// ArrayList program
+package Task12;
+
+//import a Util package
+import java.util.*;
+
+public class ArrayListProgram {
+
+	//Main method
+	public static void main(String[] args) {
+		
+		//Create ArrayList object
+		List<String> names = new ArrayList<>();
+		
+		//Add elements
+		names.add("Priya");
+		names.add("Ram");
+		names.add("Narendra");
+		names.add("Bala");
+		System.out.println("Names in the ArrayList \n========================");
+		System.out.println(names);
+		
+		//Remove all the elements
+		names.removeAll(names);
+		System.out.println("\n\nNames in the ArrayList after removing all elements \n==========================================================");
+		System.out.println(names);
+
+	}
+
+}
+
+Output:
+
+Names in the ArrayList 
+========================
+[Priya, Ram, Narendra, Bala]
+
+
+Names in the ArrayList after removing all elements 
+==========================================================
+[]
+
+
+
+3. Java Program to create a TreeMap of employee IDs and names. Then, Print out the names of all the employees in
+================================================================================================================ alphabetical order.
+==================
+
+// Program to create a TreeMap of employee IDs and names. 
+package Task12;
+
+import java.util.*;
+
+public class TreeMapProgram {
+
+	public static void main(String[] args) {
+		
+		//create an object 
+		SortedMap t =new TreeMap();
+		
+		// Add the elements
+		t.put("Priya",100);
+		t.put("Bala",103);
+		t.put("Narendra",107);
+		t.put("Kavin",111);
+		
+		//Print the elements
+		System.out.println("Employees in Alphabetical order\n==============================");
+		System.out.println(t);
+		
+	}
+
+}
+
+Output:
+
+Employees in Alphabetical order
+==============================
+{Bala=103, Kavin=111, Narendra=107, Priya=100}
+
+4. Program to convert List to Array.
+====================================
+
+//List to array conversion
+package Task12;
+//Import util package
+import java.util.*;
+public class ListToArrayConversion {
+
+	//Main method
+	public static void main(String[] args) {
+
+		//Create an Array List
+		List<Integer> al=new ArrayList<>();
+		
+		//Add elements
+		al.add(100);
+		al.add(200);
+		al.add(300);
+		al.add(400);
+		al.add(500);
+		
+		//Print the array list elements
+		System.out.println("ArrayList elements : \n============================");
+		System.out.println(al);
+		
+		//Create an array of same size and type		
+		Integer[] array = al.toArray(new Integer[al.size()]);
+		
+		// Print the Array elements
+		System.out.println("\n\nArray elements : \n============================");
+		System.out.println(Arrays.toString(array));
+		
+		// Another method
+		// Create an Array 
+		Integer [] arr= new Integer[al.size()];
+		al.toArray(arr);
+		
+		//Print the array elements
+		System.out.println("\n\nArray elements : \n================");
+		for(int i=0; i<al.size();i++) {
+			
+			System.out.println(arr[i]);
+		}
+	}
+
+}
+
+Output:
+
+ArrayList elements : 
+============================
+[100, 200, 300, 400, 500]
+
+
+Array elements : 
+============================
+[100, 200, 300, 400, 500]
+
+
+Array elements : 
+================
+100
+200
+300
+400
+500
