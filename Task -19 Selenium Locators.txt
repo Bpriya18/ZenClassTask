@@ -1,0 +1,44 @@
+Task -19 Selenium Locators
+==========================
+
+Write all possible locators for th given URL: https://www.guvi.in/register
+//TagName
+WebElement main = driver.findElement(By.tagName("main"));
+WebElement heading = driver.findElement(By.tagName("h1"));
+				
+//Class Name Locator
+WebElement googleButtonClassName = driver.findElement(By.className("btn-outline-google"));
+WebElement signupEmailClassName = driver.findElement(By.className("alternative-login-message"));
+WebElement signupClassName = driver.findElement(By.className("btn-primary"));
+				
+//ID Locator
+WebElement firstNameID = driver.findElement(By.id("firstName"));
+WebElement lastNameID = driver.findElement(By.id("lastName"));
+WebElement emailInputID = driver.findElement(By.id("emailInput"));
+WebElement passwordInputID = driver.findElement(By.id("passwordInput"));
+WebElement mobileNumberInputID = driver.findElement(By.id("mobileNumberInput"));
+WebElement signupID = driver.findElement(By.id("signup"));
+WebElement googleButtonID = driver.findElement(By.id("google-button"));
+
+//CSS Selector
+WebElement firstNameCSS = driver.findElement(By.cssSelector("#firstName"));
+WebElement btnCSS = driver.findElement(By.cssSelector("a.btn.btn-outline-google"));
+WebElement btn1CSS = driver.findElement(By.cssSelector("button[type*='button']"));
+WebElement passwordInputCSS = driver.findElement(By.cssSelector(".form-control[placeholder*='Password']"));
+WebElement Email1CSS = driver.findElement(By.cssSelector("input[placeholder$='red']"));
+WebElement Email2CSS = driver.findElement(By.cssSelector("input[placeholder*='red']"));
+WebElement Email3CSS = driver.findElement(By.cssSelector("input[placeholder^='E-']"));
+						
+// XPath
+WebElement firstNameCPath = driver.findElement(By.xpath("//input[@id='firstName']"));
+WebElement firstNameCPath2 = driver.findElement(By.xpath("//input[contains(@id,'firstName')]"));
+WebElement btnCPath = driver.findElement(By.xpath("//a[@id='google-button']"));
+WebElement btn2CPath = driver.findElement(By.xpath("//*[contains(@placeholder,'Mobile number')]"));
+WebElement btn3CPath = driver.findElement(By.xpath("//input[starts-with(@id,'mobile')]"));
+WebElement btn4CPath = driver.findElement(By.xpath("//*[contains(text(),'Please Enter a valid First Name')]"));
+WebElement firstName1CPath = driver.findElement(By.xpath("//div/input[@id='lastName']"));
+				
+
+				
+				
+				
