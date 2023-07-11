@@ -1,0 +1,91 @@
+Selenium program to verify the login process in Snapdeal website
+
+Program:
+========
+
+
+//Login Verification Program
+package sampleTest;
+
+//Import the packages
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+
+public class Snapdeal {
+
+	//Main method
+	public static void main(String[] args) throws InterruptedException {
+
+		//Create an Object for the chromedriver class with parent interface WebDriver
+		WebDriver driver=new ChromeDriver();
+
+		//Launch the website 
+		driver.get("http://www.snapdeal.com"); 
+		Actions actions=new Actions(driver);
+
+		//Maximize the Window 
+		driver.manage().window().maximize();
+
+		//Click on signIn button
+		Thread.sleep(2000); 
+		WebElement  signIn = driver.findElement(By.xpath("//span[@class='accountUserName col-xs-12 reset-padding']"));
+		actions.click(signIn).build().perform(); 
+		signIn.click();
+
+
+
+		//Click on newUserRegister
+		WebElement newUserRegister = driver.findElement(By.className("newUserRegister")); newUserRegister.click();
+		System.out.println("Signin");
+
+		//Switch to iframe
+		Thread.sleep(1000);
+		WebElement iFrameElement=driver.findElement(By.xpath("//iframe[@id='loginIframe']"));
+		driver.switchTo().frame(iFrameElement);
+
+		//Enter userName 
+		WebElement userName =  driver.findElement(By.xpath("//input[@id='userName']"));
+		userName.sendKeys("te01110st@gmail.com");
+
+		//Click on continue button
+		WebElement continueBtn = driver.findElement(By.xpath("//button[@id='checkUser']"));
+		continueBtn.click();
+
+
+		//Signup form
+		Thread.sleep(1000);
+
+		// Enter the mobile number
+		WebElement mobileSignupForm = driver.findElement(By.xpath("//input[@id='j_number']"));
+		mobileSignupForm.sendKeys("9663398852");
+
+		//Enter the Name
+		WebElement nameSignupForm =	driver.findElement(By.xpath("//input[@id='j_name']"));
+		nameSignupForm.sendKeys("priya"); 
+		Thread.sleep(1000);
+
+		//Enter the Date of birth
+		WebElement dobnameSignupForm = driver.findElement(By.xpath("//input[@id='j_dob']"));
+		dobnameSignupForm.click(); dobnameSignupForm.clear(); Thread.sleep(1000);
+		dobnameSignupForm.sendKeys("18/06/1980"); Thread.sleep(1000);
+
+		WebElement pwdSignupForm =driver.findElement(By.xpath("//input[@id='j_password']"));
+		pwdSignupForm.sendKeys("test@123");
+
+		//Click on signUp button
+		WebElement userSignUp = driver.findElement(By.xpath("//button[@id='userSignup']"));
+		userSignUp.click();
+
+		//Verify that the user is signed in successfully
+		WebElement signedUpPage = driver.findElement(By.xpath("//div/span[contains(text(),'priya')]"));
+		if (signedUpPage.getText().equals("Priya"))
+			System.out.println("User is signedIn successfully");
+		else
+			System.out.println("User is not signedIn successfully");
+
+	}
+
+}
